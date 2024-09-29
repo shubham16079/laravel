@@ -40,7 +40,7 @@ function Carousel({ slides }) {
           <div
             key={index}
             className="w-full flex-shrink-0 h-300"
-            style={{ backgroundImage: `url(${assetUrl}${slide.url})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            style={{ backgroundImage: `url(${assetUrl}${slide.url})`, backgroundSize: 'cover', backgroundPosition: 'center',height:"300px" }}
           >
             <div className="bg-black bg-opacity-50 w-full h-full flex justify-center items-center">
               <h2 className="text-white text-3xl font-bold">{slide.caption}</h2>

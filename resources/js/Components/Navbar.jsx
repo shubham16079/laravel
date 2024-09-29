@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaShoppingCart, FaBars } from 'react-icons/fa';
 import { Link, Head } from '@inertiajs/react';
 import CategoryNav from './CategoryNav';
-function Navbar() {
+function Navbar({appName}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -12,7 +12,7 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center">
           <a href="/" className="text-white text-2xl font-bold hover:text-yellow-500 transition duration-300">
-            Asli Flipkart
+              {appName}
           </a>
         </div>
 

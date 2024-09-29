@@ -1,6 +1,8 @@
 import Navbar from "@/Components/Navbar";
-import Carousel from '@/Components/Carousel'
+import Carousel from '@/Components/Carousel';
+import Footer from '@/Components/Footer';
 export default function Welcome() {
+    const appName = import.meta.env.VITE_APP_NAME;
     const slides = [
         {
           url: '/images/slider1.webp',
@@ -17,10 +19,11 @@ export default function Welcome() {
       ];
     return (
         <>
-        <Navbar />
+        <Navbar appName={appName} />
         <div className="container mx-auto">
              <Carousel slides={slides} />
         </div>
+            <Footer appName={appName}/>
         </>
     )
 }
