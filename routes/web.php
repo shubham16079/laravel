@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/', [CategoryProductController::class, 'index'])->name('categories.products');
+Route::get('/{category}/{product_id}', [CategoryProductController::class, 'show'])->name('product.show');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
