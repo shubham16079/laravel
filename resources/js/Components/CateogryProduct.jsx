@@ -7,7 +7,7 @@ const CategoryProductsPage = () => {
 
     // Fetch categories and products on component mount
     useEffect(() => {
-        axios.post('/categories/products')
+        axios.post('/')
             .then(response => {
                 setCategories(response.data.categories);
                 setLoading(false);
@@ -24,23 +24,23 @@ const CategoryProductsPage = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Products by Category</h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="space-y-6">
                 {categories.map((category) => (
-                    <div key={category.id} className="bg-white rounded-lg shadow p-4">
-                        <h2 className="text-xl font-semibold">{category.name}</h2>
-                        <div className="mt-2">
+                    <div key={category.id} className="flex flex-col">
+                        {/* Category name */}
+                        <h2 className="text-xl font-semibold mb-2">{category.name}</h2>
+                        <div className="flex flex-wrap gap-4">
                             {category.products.length > 0 ? (
                                 category.products.map((product) => (
-                                    <div key={product.id} className="border-b py-2">
+                                    <div key={product.id} className="w-1/5 bg-white rounded-lg shadow p-4">
                                         <img
                                             src={`/images/${product.image}`}
                                             alt={product.name}
-                                            className="w-full h-32 object-cover rounded-md"
+                                            className="w-full h-32 object-cover rounded-md mb-2"
                                         />
                                         <h3 className="text-lg font-medium">{product.name}</h3>
-                                        <p>{product.description}</p>
+                                        <p className="text-gray-600">{product.description}</p>
                                         <p className="text-lg font-bold">${product.price}</p>
                                         <a href={`/products/${product.id}`} className="text-blue-500 hover:underline">
                                             View Details
@@ -48,7 +48,7 @@ const CategoryProductsPage = () => {
                                     </div>
                                 ))
                             ) : (
-                                <p>No products available in this category.</p>
+                                <p className="text-gray-500">No products available in this category.</p>
                             )}
                         </div>
                     </div>

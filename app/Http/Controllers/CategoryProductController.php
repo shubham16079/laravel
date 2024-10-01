@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Inertia\Inertia;
-
+use App\Models\Category;
 
 class CategoryProductController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index()
     {
-        $categories = Category::with('products')->get(); // Assuming a relationship is defined in the Category model
-        return Inertia::render('Landing', [
+        // Fetch categories with their related products
+        $categories = Category::with('products')->get();
+        // Return the categories as a JSON response
+        return response()->json([
             'categories' => $categories,
         ]);
     }

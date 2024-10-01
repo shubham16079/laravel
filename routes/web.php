@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CategoryProductController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -14,6 +15,7 @@ Route::get('/', function () {
     ]);
 });
 
+Route::post('/', [CategoryProductController::class, 'index'])->name('categories.products');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

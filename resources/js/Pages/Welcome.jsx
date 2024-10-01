@@ -1,6 +1,7 @@
 import Navbar from "@/Components/Navbar";
 import Carousel from '@/Components/Carousel';
 import Footer from '@/Components/Footer';
+import CateogryProduct from "@/Components/CateogryProduct.jsx";
 export default function Welcome() {
     const appName = import.meta.env.VITE_APP_NAME;
     const slides = [
@@ -23,6 +24,7 @@ export default function Welcome() {
         <div className="container mx-auto">
              <Carousel slides={slides} />
         </div>
+            <CateogryProduct />
             <Footer appName={appName}/>
         </>
     )
